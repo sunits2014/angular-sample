@@ -1,0 +1,31 @@
+<div class="p-4">
+  <h2>login works!</h2>
+  <button *ngIf="!showButton" mat-raised-button color="primary" class="mb-4" (click)="toggleColor()">Primary</button>
+  <section id="cake-details" class="p-3" [ngStyle]="{'display': colorChange ? 'none' : 'block'}">
+    <ng-container *ngFor="let data of sampleObject | keyvalue, let idx = index">
+      <div *ngIf="idx < 4" class="d-flex align-items-center">
+        <h4 class="m-0 p-0">{{data.key}} - {{data.value}}</h4>
+      </div>
+    </ng-container>
+    <section>
+      <h4>Batter:</h4>
+      <ul>
+        <ng-container *ngFor="let topic of sampleObject.topic.batter">
+          <li>
+            {{topic.type}}
+          </li>
+        </ng-container>
+      </ul>
+    </section>
+    <section>
+      <h4>Toppings:</h4>
+      <ul>
+        <ng-container *ngFor="let topic of sampleObject.topping">
+          <li>
+            {{topic.type}}
+          </li>
+        </ng-container>
+      </ul>
+    </section>
+  </section>
+</div>

@@ -1,0 +1,12 @@
+#cake-details {
+    background-color: cadetblue;
+}
+
+.bg-something {
+    background-color: cornflowerblue !important;
+}
+
+section {
+    border-radius: 0.5rem;
+    color: white;
+}
