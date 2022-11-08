@@ -5,12 +5,14 @@ import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login.component';
 import { UserComponent } from './user/user.component';
 import { SharedModule } from '../shared/shared.module';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
   declarations: [
     LoginComponent,
-    UserComponent
+    UserComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,

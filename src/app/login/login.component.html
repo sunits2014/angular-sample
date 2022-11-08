@@ -28,4 +28,22 @@
       </ul>
     </section>
   </section>
+  <div class="switch-example">
+    <ul class="m-0 p-0 d-flex align-items-center">
+      <li class="p-3" (click)="getSelectedTab('user')" [ngClass]="{'activeTab': view === 'user'}">
+        <span class="fw-bold">User</span>
+      </li>
+      <li class="p-3" (click)="getSelectedTab('profile')" [ngClass]="{'activeTab': view === 'profile'}">
+        <span class="fw-bold">Profile</span>
+      </li>
+    </ul>
+    <div class="my-3" [ngSwitch]="view">
+      <ng-container *ngSwitchDefault>
+        <app-user [userData]="userData" (btnClick)="getbtnClick($event)"></app-user>
+      </ng-container>
+      <ng-container *ngSwitchCase="'profile'">
+        <app-profile></app-profile>
+      </ng-container>
+    </div>
+  </div>
 </div>

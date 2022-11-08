@@ -1,1 +1,25 @@
-<p>user works!</p>
+<ng-container *ngIf="user">
+    <ul class="m-0 p-0">
+        <li class="d-flex align-items-center">
+            <h3 class="fw-bold m-0">Name:</h3>
+            <span class="px-3 d-block">{{user.name}}</span>
+        </li>
+        <li class="d-flex align-items-center">
+            <h3 class="fw-bold m-0">Location:</h3>
+            <span class="px-3 d-block">{{user.location}}</span>
+        </li>
+        <li class="d-flex align-items-center">
+            <h3 class="fw-bold m-0">Company:</h3>
+            <span class="px-3 d-block">{{user.company}}</span>
+        </li>
+        <li class="d-flex align-items-center">
+            <h3 class="fw-bold m-0">Designation:</h3>
+            <span class="px-3 d-block">{{user.designation}}</span>
+        </li>
+        <li class="d-flex align-items-center">
+            <h3 class="fw-bold m-0">Tenure:</h3>
+            <span class="px-3 d-block">{{user.tenure}}</span>
+        </li>
+    </ul>
+</ng-container>
+<button class="my-3" mat-raised-button color="primary" (click)="emitBtnClick()">Button on User Comp</button>

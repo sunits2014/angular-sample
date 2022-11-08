@@ -56,4 +56,12 @@ export class SampleData {
                 { "id": "5004", "type": "Maple" }
             ]
     }
+
+    static readonly User = {
+        name: 'John Doe',
+        location: 'Bangalore',
+        company: 'ABC Info',
+        designation: 'Principal Engineer',
+        tenure: '8 years'
+    }
 }

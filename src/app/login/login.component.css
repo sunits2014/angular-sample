@@ -10,3 +10,11 @@ section {
     border-radius: 0.5rem;
     color: white;
 }
+
+ul li {
+    cursor: pointer;
+}
+
+.activeTab {
+    border-bottom: 2px solid blueviolet;
+}
