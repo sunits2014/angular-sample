@@ -1,0 +1,7 @@
+ul li:nth-child(even) {
+    padding: 1rem 0rem;
+}
+
+ul li label {
+    padding-right: 1rem;
+}

@@ -1,13 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { SampleData } from '../constants/sample-data.constant';
 import { IUser } from '../interfaces/user.model';
+import { ProfileComponent } from './profile/profile.component';
+import { UserComponent } from './user/user.component';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, AfterViewInit {
+
+  @ViewChild('user') user: UserComponent;
+  @ViewChild('profile') profile: ProfileComponent;
+
+  @ViewChildren('childUserItems') childUserItems: QueryList<UserComponent>;
+
 
   public showButton: boolean;
   public sampleArray: Array<any>;
@@ -27,6 +35,10 @@ export class LoginComponent implements OnInit {
     this.sampleArray = SampleData.sampleArray;
     this.sampleObject = SampleData.sampleObject;
     this.userData = SampleData.User;
+  }
+
+  ngAfterViewInit(): void {
+    console.log(this.user);
   }
 
   public toggleColor() {

@@ -39,10 +39,10 @@
     </ul>
     <div class="my-3" [ngSwitch]="view">
       <ng-container *ngSwitchDefault>
-        <app-user [userData]="userData" (btnClick)="getbtnClick($event)"></app-user>
+        <app-user #user [userData]="userData" (btnClick)="getbtnClick($event)"></app-user>
       </ng-container>
       <ng-container *ngSwitchCase="'profile'">
-        <app-profile></app-profile>
+        <app-profile #profile [userData]="userData"></app-profile>
       </ng-container>
     </div>
   </div>

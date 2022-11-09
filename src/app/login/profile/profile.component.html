@@ -1,1 +1,27 @@
-<p>profile works!</p>
+<ng-container *ngIf="userData">
+    <form (ngSubmit)="(!userData.tenure || !userData.name || !userData.location || !userData.company || !userData.designation) ? null : submitForm()">
+        <ul class="m-0 p-0">
+            <li class="d-flex align-items-center">
+                <label for="name" class="fw-bold m-0">Name:</label>
+                <input id="name" name="name" type="text" [(ngModel)]="userData.name">
+            </li>
+            <li class="d-flex align-items-center">
+                <label for="location" class="fw-bold m-0">Location:</label>
+                <input id="location" name="location" type="text" [(ngModel)]="userData.location">
+            </li>
+            <li class="d-flex align-items-center">
+                <label for="company" class="fw-bold m-0">Company:</label>
+                <input id="company" name="company" type="text" [(ngModel)]="userData.company">
+            </li>
+            <li class="d-flex align-items-center">
+                <label for="designation" class="fw-bold m-0">Designation:</label>
+                <input id="designation" name="designation" type="text" [(ngModel)]="userData.designation">
+            </li>
+            <li class="d-flex align-items-center">
+                <label for="tenure" class="fw-bold m-0">Tenure:</label>
+                <input id="tenure" name="tenure" type="text" [(ngModel)]="userData.tenure">
+            </li>
+        </ul>
+        <button [disabled]="(!userData.tenure || !userData.name || !userData.location || !userData.company || !userData.designation)" class="my-3" type="submit" mat-raised-button color="primary">Submit Form</button>
+    </form>
+</ng-container>
