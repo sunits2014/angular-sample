@@ -22,12 +22,42 @@
       <ul>
         <ng-container *ngFor="let topic of sampleObject.topping">
           <li>
-            {{topic.type}}
+            {{topic.type | titlecase}}
           </li>
         </ng-container>
       </ul>
     </section>
   </section>
+  <div>
+    <h2>Today's date: {{date | date: 'shortDate'}}</h2>
+  </div>
+  <div>
+    <button mat-raised-button color="primary" type="button" (click)="toggleCurrency()" class="mb-3">Change currency</button>
+    <h2>Currency: {{currency | currency:currencyType:'symbol'}}</h2>
+  </div>
+  <div id="custom-pipe" class="p-3 shadow">
+    <h5 class="fw-bold m-0 p-0">Custom Pipe Example</h5>
+    <div class="d-flex">
+      <div class="w-50">
+        <div class="d-flex align-items-center">
+          <input type="text" class="m-3" placeholder="phone model" [(ngModel)]="phoneModel">
+          <i *ngIf="phoneModel" class="bi bi-backspace-fill" (click)="clearString()"></i>
+        </div>
+        <p *ngIf="phoneModel">You searched for <strong>{{phoneModel}}</strong></p>
+      </div>
+      <!-- <div class="w-50">
+        <input type="text" class="my-3" placeholder="brand" [(ngModel)]="brand">
+        <p *ngIf="brand">You searched for <strong>{{brand}}</strong></p>
+      </div> -->
+    </div>
+    <ul class="m-0 p-0">
+      <ng-container *ngFor="let phone of jsonValues | searchFilter:phoneModel">
+        <li>
+          <h4 class="fw-bold">{{phone.title}}</h4>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
   <div class="switch-example">
     <ul class="m-0 p-0 d-flex align-items-center">
       <li class="p-3" (click)="getSelectedTab('user')" [ngClass]="{'activeTab': view === 'user'}">
@@ -39,7 +69,7 @@
     </ul>
     <div class="my-3" [ngSwitch]="view">
       <ng-container *ngSwitchDefault>
-        <app-user #user [userData]="userData" (btnClick)="getbtnClick($event)"></app-user>
+        <app-user #user [userData]="userData" (btnClick)="getbtnClick($event)" [phoneModel]="phoneModel"></app-user>
       </ng-container>
       <ng-container *ngSwitchCase="'profile'">
         <app-profile #profile [userData]="userData"></app-profile>

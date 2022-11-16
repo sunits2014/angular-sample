@@ -37,6 +37,7 @@
         <button *ngIf="!fieldsAdded" class="mb-3" mat-raised-button color="primary" (click)="addFields()">Add Fields</button>
         <button *ngIf="fieldsAdded" class="mb-3" mat-raised-button color="accent" (click)="removeFields()">Remove Fields</button>
       </div>
+      
       <form [formGroup]="profileForm" (ngSubmit)="profileForm.valid ? submitForm() : null">
         <ul class="m-0 p-0">
           <li class="d-flex align-items-center">
@@ -60,7 +61,7 @@
             <input id="tenure" formControlName="tenure" type="text">
           </li>
           <ng-container *ngIf="fieldsAdded">
-            <li class="d-flex align-items-center">
+            <li [@openClose]="isOpen ? 'open' : 'closed'" class="d-flex align-items-center">
               <label for="tenure" class="fw-bold m-0">Experience:</label>
               <select formControlName="experience">
                 <ng-container *ngFor="let years of options, let idx = index">

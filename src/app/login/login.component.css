@@ -18,3 +18,7 @@ ul li {
 .activeTab {
     border-bottom: 2px solid blueviolet;
 }
+
+#custom-pipe {
+    background-color: #ccc;
+}

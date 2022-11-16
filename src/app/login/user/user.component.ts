@@ -9,21 +9,24 @@ import { IUser } from 'src/app/interfaces/user.model';
 export class UserComponent implements OnInit, OnChanges {
 
   @Input('userData') userData: IUser;
+  @Input('phoneModel') phoneModel: string;
 
   @Output('btnClick') btnClick: EventEmitter<string> = new EventEmitter();
 
   public user: IUser;
+  public phoneModelFromUser: string;
 
   constructor() { 
     this.user = {} as IUser;
   }
 
   ngOnInit(): void {
+    
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.userData && changes.userData.currentValue) {
-      this.user = changes.userData.currentValue
+    if (changes.phoneModel && changes.phoneModel.currentValue) {
+      this.phoneModelFromUser = changes.phoneModel.currentValue;
     }
   }
 

@@ -47,13 +47,13 @@ export class SampleData {
         },
         "topping":
             [
-                { "id": "5001", "type": "None" },
-                { "id": "5002", "type": "Glazed" },
-                { "id": "5005", "type": "Sugar" },
-                { "id": "5007", "type": "Powdered Sugar" },
-                { "id": "5006", "type": "Chocolate with Sprinkles" },
-                { "id": "5003", "type": "Chocolate" },
-                { "id": "5004", "type": "Maple" }
+                { "id": "5001", "type": "none" },
+                { "id": "5002", "type": "glazed" },
+                { "id": "5005", "type": "sugar" },
+                { "id": "5007", "type": "powdered sugar" },
+                { "id": "5006", "type": "chocolate with sprinkles" },
+                { "id": "5003", "type": "chocolate" },
+                { "id": "5004", "type": "maple" }
             ]
     }
 

@@ -4,9 +4,12 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import {MatTabsModule} from '@angular/material/tabs';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SearchFilterPipe } from '../pipes/search-filter.pipe';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    SearchFilterPipe
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -18,7 +21,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
-    MatTabsModule
+    MatTabsModule,
+    SearchFilterPipe
   ]
 })
 export class SharedModule { }
