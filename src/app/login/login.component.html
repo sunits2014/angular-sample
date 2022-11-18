@@ -28,8 +28,9 @@
       </ul>
     </section>
   </section>
-  <div>
-    <h2>Today's date: {{date | date: 'shortDate'}}</h2>
+  <div class="position-relative">
+    <button type="button" class="my-3" mat-raised-button (click)="toggleDate()">Toggle Date</button>
+    <h2 *ngIf="date" [@EnterLeave]>Today's date: {{date | date: 'shortDate'}}</h2>
   </div>
   <div>
     <button mat-raised-button color="primary" type="button" (click)="toggleCurrency()" class="mb-3">Change currency</button>

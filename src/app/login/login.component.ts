@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { EnterLeaveAnimation } from '../animations/enter-leave.animation';
 import { JSONValues } from '../constants/json.constants';
 import { SampleData } from '../constants/sample-data.constant';
 import { IUser } from '../interfaces/user.model';
@@ -8,7 +9,8 @@ import { UserComponent } from './user/user.component';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  animations: [EnterLeaveAnimation]
 })
 export class LoginComponent implements OnInit, AfterViewInit {
 
@@ -33,12 +35,10 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
   private currencyTypes: Array<string>
 
-
   constructor() { 
     this.sampleArray = [];
     this.view = 'user';
     this.userData = {} as IUser;
-    this.date = new Date();
     this.currency = 10;
     this.currencyTypes = [];
   }
@@ -50,10 +50,19 @@ export class LoginComponent implements OnInit, AfterViewInit {
     this.sampleObject = SampleData.sampleObject;
     this.userData = SampleData.User;
     this.jsonValues = JSONValues.JSON_DATA;
+    this.getDate();
   }
 
   ngAfterViewInit(): void {
     console.log(this.user);
+  }
+
+  public toggleDate() {
+    if (this.date) {
+      this.date = null
+    } else {
+      this.getDate();
+    }
   }
 
   public toggleCurrency() {
@@ -79,6 +88,10 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
   public clearString() {
     this.phoneModel = '';
+  }
+
+  private getDate() {
+    this.date = new Date();
   }
 
 }

@@ -1,0 +1,13 @@
+<nav class="d-flex align-items-center p-3">
+    <h3 class="m-0 w-50">{{appName}}</h3>
+    <ul class="m-0 p-0 d-flex align-items-center w-50 justify-content-end">
+        <ng-container *ngFor="let route of routes">
+            <li>
+                <a routerLink="{{route.route}}" routerLinkActive="activeLink" class="p-3">
+                    <span *ngIf="route.label">{{route.label}}</span>
+                    <i *ngIf="!route.label" class="{{route.icon}}"></i>
+                </a>
+            </li>
+        </ng-container>
+    </ul>
+</nav>
