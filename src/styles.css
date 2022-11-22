@@ -293,9 +293,34 @@ svg#clouds {
   }
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 ul li {
   list-style-type: none;
+}
+
+.bg-black-alpha {
+  background-color: rgba(0, 0, 0, 0.35);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.h-300 {
+  height: 300px !important;
+}
+
+.badge-class {
+  border-radius: 5rem;
+  background-color: #1976d2;
+  color: white;
 }

@@ -73,7 +73,8 @@
               "browserTarget": "sample-tutorial:build:production"
             },
             "development": {
-              "browserTarget": "sample-tutorial:build:development"
+              "browserTarget": "sample-tutorial:build:development",
+              "port": 5001
             }
           },
           "defaultConfiguration": "development"

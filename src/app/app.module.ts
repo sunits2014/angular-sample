@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpCallsInterceptor } from './services/http-interceptor/http-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,14 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
     BrowserAnimationsModule,
     SharedModule
   ],
-  providers: [{provide: DEFAULT_CURRENCY_CODE, useValue: 'USD' }],
+  providers: [
+    {provide: DEFAULT_CURRENCY_CODE, useValue: 'USD' },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpCallsInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
