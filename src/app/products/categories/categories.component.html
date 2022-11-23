@@ -1,0 +1,9 @@
+<h5 class="fw-light">Filters</h5>
+<ul class="m-0 p-0">
+    <ng-container *ngFor="let category of categories">
+        <li class="form-check">
+            <input class="form-check-input" id="{{category}}" type="checkbox" (change)="selectedCategory($event, category)">
+            <label class="form-check-label" for="{{category}}">{{category | titlecase}}</label>
+        </li>
+    </ng-container>
+</ul>

@@ -1,15 +1,37 @@
 <div class="p-3">
-    <div class="w-100">
-        <ul class="m-0 p-0 d-flex flex-wrap">
-            <ng-container *ngFor="let product of products">
-                <li class="card shadow h-300 d-flex flex-column justify-content-start align-items-start">
-                    <h3>{{product.title}}</h3>
-                    <h4 class="badge-class p-2">{{product.category}}</h4>
-                    <p>
-                        <small>{{product.price}}</small>
-                    </p>
-                </li>
-            </ng-container>
-        </ul>
+    <div class="w-100 d-flex" *ngIf="categories.length > 0">
+        <div class="w-15">
+            <app-categories [categories]="categories" (category)="getSelectedCategory($event)"></app-categories>
+        </div>
+        <div class="w-85">
+            <ul class="m-0 p-0 d-flex flex-wrap justify-content-between">
+                <ng-container *ngIf="products.length > 0 && categorySpecificData.length === 0">
+                    <ng-container *ngFor="let product of products">
+                        <li class="card shadow h-300 d-flex flex-column justify-content-start align-items-start">
+                            <a routerLink="{{product.id}}">
+                                <h3>{{product.title}}</h3>
+                                <h4 class="badge-class p-2">{{product.category}}</h4>
+                                <p>
+                                    <small>{{product.price}}</small>
+                                </p>
+                            </a>
+                        </li>
+                    </ng-container>
+                </ng-container>
+                <ng-container *ngIf="categorySpecificData.length > 0">
+                    <ng-container *ngFor="let product of categorySpecificData">
+                        <li class="card shadow h-300 d-flex flex-column justify-content-start align-items-start">
+                            <a routerLink="{{product.id}}">
+                                <h3>{{product.title}}</h3>
+                                <h4 class="badge-class p-2">{{product.category}}</h4>
+                                <p>
+                                    <small>{{product.price}}</small>
+                                </p>
+                            </a>
+                        </li>
+                    </ng-container>
+                </ng-container>
+            </ul>
+        </div>
     </div>
 </div>

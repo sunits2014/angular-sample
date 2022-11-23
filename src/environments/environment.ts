@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  getProducts: 'https://fakestoreapi.com/products'
+  getProducts: 'https://fakestoreapi.com/products',
+  getCategories: 'https://fakestoreapi.com/products/categories',
+  getInCategory: 'https://fakestoreapi.com/products/category'
 };
 
 /*

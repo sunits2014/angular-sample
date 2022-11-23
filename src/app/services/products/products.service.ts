@@ -22,4 +22,37 @@ export class ProductsService {
     })
   }
 
+  public getCategories(): Promise<any> {
+    const url = environment.getCategories;
+    return new Promise((resolve, reject) => {
+      this.httpService.getData(url).then(response => {
+        return resolve(response)
+      }).catch(error => {
+        return reject(error);
+      })
+    })
+  }
+
+  public getProductWithId(id: number) {
+    const url = environment.getProducts + `/${id}`;
+    return new Promise((resolve, reject) => {
+      this.httpService.getData(url).then(response => {
+        return resolve(response)
+      }).catch(error => {
+        return reject(error);
+      })
+    })
+  }
+
+  public getInCategory(category: string) {
+    const url = environment.getInCategory + `/${category}`;
+    return new Promise((resolve, reject) => {
+      this.httpService.getData(url).then(response => {
+        return resolve(response)
+      }).catch(error => {
+        return reject(error);
+      })
+    })
+  }
+
 }
