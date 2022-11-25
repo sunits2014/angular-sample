@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
 import { MatButtonModule } from '@angular/material/button';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatTabsModule } from '@angular/material/tabs';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchFilterPipe } from '../pipes/search-filter.pipe';
+import { MatSnackBarModule } from '@angular/material/snack-bar'
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SearchFilterPipe } from '../pipes/search-filter.pipe';
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
-    MatTabsModule
+    MatTabsModule,
+    MatSnackBarModule
   ],
   exports: [
     HttpClientModule,
@@ -25,7 +27,8 @@ import { SearchFilterPipe } from '../pipes/search-filter.pipe';
     ReactiveFormsModule,
     MatButtonModule,
     MatTabsModule,
-    SearchFilterPipe
+    SearchFilterPipe,
+    MatSnackBarModule
   ]
 })
 export class SharedModule { }

@@ -5,7 +5,9 @@
             <li>
                 <a routerLink="{{route.route}}" routerLinkActive="activeLink" class="p-3">
                     <span *ngIf="route.label">{{route.label}}</span>
-                    <i *ngIf="!route.label" class="{{route.icon}}"></i>
+                    <i *ngIf="!route.label" class="{{route.icon}}">
+                    </i>
+                    <sup *ngIf="route.icon && cartItems > 0">{{cartItems}}</sup>
                 </a>
             </li>
         </ng-container>
