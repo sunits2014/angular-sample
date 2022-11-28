@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { IProduct } from '../interfaces/product.model';
-import { PubSubService } from '../services/common/publish-subscribe.service';
 
 @Component({
   selector: 'app-cart',
@@ -12,14 +12,15 @@ export class CartComponent implements OnInit {
   public cartItems: Array<IProduct>;
 
   constructor(
-    private pubSubService: PubSubService
-  ) { 
+    private activatedRoute: ActivatedRoute
+  ) {
     this.cartItems = [];
-    this.cartItems = this.pubSubService.cartItems.value;
-    console.log(this.cartItems);
   }
 
   ngOnInit(): void {
+    Object.keys(this.activatedRoute.snapshot.data).forEach(item => {
+      this.cartItems.push(this.activatedRoute.snapshot.data[item]);
+    });
   }
 
 }

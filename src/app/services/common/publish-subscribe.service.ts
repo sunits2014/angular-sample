@@ -9,19 +9,30 @@ import { LoaderService } from "../loader/loader.service";
 
 export class PubSubService {
 
+    public storedItemsInCart: Array<any>;
     public cartItems: BehaviorSubject<any> = new BehaviorSubject({}); // capable of storing old and latest values
     public something: BehaviorSubject<any> = new BehaviorSubject({}); // capable of only relaying latest value
 
     constructor(
         private loaderService: LoaderService
     ) {
+        this.storedItemsInCart = [];
     }
 
     public broadcastSpinner(spinnerStatus: boolean) {
         spinnerStatus ? this.loaderService.showLoader() : this.loaderService.hideLoader();
     }
 
-    public addItemsToCart(value: IProduct) {
+    public addCartIcon(value: IProduct) {
         this.cartItems.next(value);
+    }
+
+    public addItemsToCart(value: IProduct) {
+        this.storedItemsInCart.push(value);
+        const existingKey = sessionStorage.getItem('cartItems');
+        if (existingKey) {
+            sessionStorage.removeItem('cartItems');
+        };
+        sessionStorage.setItem('cartItems', JSON.stringify(this.storedItemsInCart));
     }
 }

@@ -6,6 +6,11 @@ export class NavigationConstants {
             route: 'login'
         },
         {
+            key: 'profile',
+            label: 'Profile',
+            route: 'profile'
+        },
+        {
             key: 'products',
             label: 'Products',
             route: 'products'

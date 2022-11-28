@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { CartModule } from './cart/cart.module';
 import { LoginModule } from './login/login.module';
 import { ProductsModule } from './products/products.module';
+import { ProfileModule } from './profile/profile.module';
+import { AuthGuard } from './services/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -21,6 +23,11 @@ const routes: Routes = [
   {
     path: 'cart',
     loadChildren: () => import('./cart/cart.module').then(m => CartModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then(m => ProfileModule),
+    canActivate: [AuthGuard]
   }
 ];
 

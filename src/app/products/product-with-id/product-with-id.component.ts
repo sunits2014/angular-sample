@@ -45,7 +45,7 @@ export class ProductWithIdComponent implements OnInit {
   }
 
   public addToCart() {
-    this.pubSubService.addItemsToCart(this.product);
+    this.pubSubService.addCartIcon(this.product);
   }
 
 }
