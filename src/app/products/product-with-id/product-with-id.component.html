@@ -31,7 +31,7 @@
           <p>Price:</p>
           <strong>{{product.price | currency:currencyType:'symbol'}}</strong>
         </div>
-        <button mat-raised-button color="primary" (click)="addToCart()">Add to cart</button>
+        <button [disabled]="addedItem" mat-raised-button color="primary" (click)="addedItem ? null : addToCart()" [innerText]="addedItem ? 'Item in cart' : 'Add to cart'"></button>
       </div>
     </div>
   </div>

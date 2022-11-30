@@ -25,6 +25,7 @@ export class PubSubService {
 
     public addCartIcon(value: IProduct) {
         this.cartItems.next(value);
+        this.addItemsToCart(value);
     }
 
     public addItemsToCart(value: IProduct) {

@@ -10,17 +10,28 @@ import { IProduct } from '../interfaces/product.model';
 export class CartComponent implements OnInit {
 
   public cartItems: Array<IProduct>;
+  public currencyType: string;
+  public total: number;
 
   constructor(
     private activatedRoute: ActivatedRoute
   ) {
     this.cartItems = [];
+    this.currencyType = 'USD';
+    this.total = 0;
   }
 
   ngOnInit(): void {
     Object.keys(this.activatedRoute.snapshot.data).forEach(item => {
       this.cartItems.push(this.activatedRoute.snapshot.data[item]);
     });
+    this.calculateTotal();
+  }
+
+  private calculateTotal() {
+    this.cartItems.forEach(item => {
+      this.total = this.total + parseInt(item.price)
+    })
   }
 
 }

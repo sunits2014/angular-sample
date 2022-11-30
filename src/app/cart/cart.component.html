@@ -1,1 +1,22 @@
-<p>cart works!</p>
+<div class="container w-50 mt-5">
+    <h2>Your Cart</h2>
+    <ul class="m-0 border p-0">
+        <ng-container *ngFor="let item of cartItems">
+            <li class="p-3 d-flex align-items-center">
+                <div class="w-100">
+                    <p class="m-0">{{item.title}}</p>
+                    <p class="m-0">{{item.category}}</p>
+                </div>
+                <div class="d-flex justify-content-end w-100">
+                    <p class="m-0"><strong>{{item.price | currency:currencyType:'symbol'}}</strong></p>
+                </div>
+            </li>
+        </ng-container>
+    </ul>
+    <div class="d-flex justify-content-end w-100 mt-4">
+        <p class="m-0 mx-2">
+            <span>Total:</span>
+            <strong class="mx-2">{{total | currency:currencyType:'symbol'}}</strong>
+        </p>
+    </div>
+</div>

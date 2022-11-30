@@ -14,10 +14,11 @@ import { ProductsService } from 'src/app/services/products/products.service';
 export class ProductWithIdComponent implements OnInit {
 
   public product: IProduct;
+  public currencyType: string;
+  public addedItem: any;
 
   private productId: number;
 
-  public currencyType: string;
 
   constructor(
     private router: Router,
@@ -37,7 +38,8 @@ export class ProductWithIdComponent implements OnInit {
       this.product = response;
     }).catch(error => {
       this.errorHandlerService.handleError(error);
-    })
+    });
+    this.identifyAddedItem();
   }
 
   public navigateBackToProducts() {
@@ -46,6 +48,11 @@ export class ProductWithIdComponent implements OnInit {
 
   public addToCart() {
     this.pubSubService.addCartIcon(this.product);
+  }
+
+  private identifyAddedItem() {
+    const addedItem = JSON.parse(sessionStorage.getItem('cartItems'));
+    this.addedItem = addedItem.find(item => item.id === this.productId);
   }
 
 }

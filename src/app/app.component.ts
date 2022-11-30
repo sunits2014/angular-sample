@@ -25,11 +25,13 @@ export class AppComponent implements OnInit {
 
   private getCartItems() {
     this.cartItems = JSON.parse(sessionStorage.getItem('cartItems'));
-    if (this.cartItems.length > 0 ) {
-      this.cartItems.forEach(item => {
-        this.pubSubService.addCartIcon(item);
-      });
-      this.sendDataToCartComp();
+    if (this.cartItems) {
+      if (this.cartItems.length > 0 ) {
+        this.cartItems.forEach(item => {
+          this.pubSubService.addCartIcon(item);
+        });
+        this.sendDataToCartComp();
+      }
     }
   }
 

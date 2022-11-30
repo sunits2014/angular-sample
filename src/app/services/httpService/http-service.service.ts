@@ -21,4 +21,14 @@ export class HttpService {
             })
         })
     }
+
+    public postData(url: string, payload: any): Promise<any> {
+        return new Promise((resolve, reject) => {
+            this.httpClient.post(url,payload).subscribe(response => {
+                return resolve(response)
+            }, error => {
+                return reject(error);
+            })
+        })
+    }
 }
