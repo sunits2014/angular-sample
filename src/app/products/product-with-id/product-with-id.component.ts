@@ -52,7 +52,9 @@ export class ProductWithIdComponent implements OnInit {
 
   private identifyAddedItem() {
     const addedItem = JSON.parse(sessionStorage.getItem('cartItems'));
-    this.addedItem = addedItem.find(item => item.id === this.productId);
+    if (addedItem && addedItem.length > 0) {
+      this.addedItem = addedItem.find(item => item.id === this.productId);
+    }
   }
 
 }

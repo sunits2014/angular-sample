@@ -11,7 +11,7 @@ export class ProductsService {
     private httpService: HttpService
   ) { }
 
-  public getProducts(): Promise<any> {
+  public getProducts() {
     const url = environment.getProducts;
     return new Promise((resolve, reject) => {
       this.httpService.getData(url).then(response => {
@@ -22,7 +22,7 @@ export class ProductsService {
     })
   }
 
-  public getCategories(): Promise<any> {
+  public getCategories() {
     const url = environment.getCategories;
     return new Promise((resolve, reject) => {
       this.httpService.getData(url).then(response => {

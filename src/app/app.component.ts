@@ -10,13 +10,18 @@ import { PubSubService } from './services/common/publish-subscribe.service';
 })
 export class AppComponent implements OnInit {
 
-  private cartItems: Array<IProduct>;
+  private itemsInCart: Array<any>;
 
   constructor(
     private pubSubService: PubSubService,
     private router: Router
   ) {
-    this.cartItems = [];
+    this.itemsInCart = [];
+    this.pubSubService.cartItems.subscribe(data => {
+      if (Object.keys(data).length > 0) {
+        this.addItemRecord(data)
+      }
+    })
   }
 
   ngOnInit(): void {
@@ -24,10 +29,10 @@ export class AppComponent implements OnInit {
   }
 
   private getCartItems() {
-    this.cartItems = JSON.parse(sessionStorage.getItem('cartItems'));
-    if (this.cartItems) {
-      if (this.cartItems.length > 0 ) {
-        this.cartItems.forEach(item => {
+    this.itemsInCart = JSON.parse(sessionStorage.getItem('cartItems'));
+    if (this.itemsInCart) {
+      if (this.itemsInCart.length > 0 ) {
+        this.itemsInCart.forEach(item => {
           this.pubSubService.addCartIcon(item);
         });
         this.sendDataToCartComp();
@@ -35,10 +40,15 @@ export class AppComponent implements OnInit {
     }
   }
 
+  private addItemRecord(data) {
+    this.itemsInCart.push(data);
+    this.sendDataToCartComp();
+  }
+
   private sendDataToCartComp() {
     this.router.config.forEach(item => {
       if (item.path === 'cart') {
-        item.data = this.cartItems;
+        item.data = this.itemsInCart;
       }
     })
   }

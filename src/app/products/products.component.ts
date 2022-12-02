@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { forkJoin } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
 import { IProduct } from '../interfaces/product.model';
 import { ProductsService } from '../services/products/products.service';
 
@@ -23,7 +23,7 @@ export class ProductsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    forkJoin(this.productService.getProducts(),this.productService.getCategories()).subscribe(responseList => {
+    forkJoin(this.productService.getProducts(),this.productService.getCategories()).subscribe((responseList: Array<any>) => {
       this.products = responseList[0];
       this.categories = responseList[1];
     })
