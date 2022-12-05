@@ -1,0 +1,68 @@
+<div class="container d-flex justify-content-center my-5">
+    <div class="w-75 shadow p-4">
+        <h3 class="fw-bold">Add User Form</h3>
+        <form [formGroup]="userForm" (ngSubmit)="addUser()">
+            <ul class="m-0 p-0">
+                <li>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" formControlName="email">
+                </li>
+                <li>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" formControlName="username">
+                </li>
+                <li>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" formControlName="password">
+                </li>
+                <li class="subList">
+                    <h3 class="fw-bold border-bottom">Name:</h3>
+                    <form [formGroup]="nameForm">
+                        <ul class="m-0 p-0">
+                            <li>
+                                <label for="firstname">Firstname:</label>
+                                <input type="text" id="firstname" formControlName="firstname">
+                                <small class="errorText" *ngIf="formSubmitted && nameForm.controls.firstname.hasError">This is required field.</small>
+                            </li>
+                            <li>
+                                <label for="lastname">Lastname:</label>
+                                <input type="text" id="lastname" formControlName="lastname">
+                                <small class="errorText" *ngIf="formSubmitted && nameForm.controls.lastname.hasError">This is required field.</small>
+                            </li>
+                        </ul>
+                    </form>
+                </li>
+                <li class="subList">
+                    <h3 class="fw-bold border-bottom">Address:</h3>
+                    <form [formGroup]="addressForm">
+                        <ul class="m-0 p-0">
+                            <li>
+                                <label for="city">City:</label>
+                                <input type="text" id="city" formControlName="city">
+                            </li>
+                            <li>
+                                <label for="street">Street:</label>
+                                <input type="text" id="street" formControlName="street">
+                            </li>
+                            <li>
+                                <label for="number">Number:</label>
+                                <input type="text" id="number" formControlName="number">
+                            </li>
+                            <li>
+                                <label for="zipcode">Zipcode:</label>
+                                <input type="text" id="zipcode" formControlName="zipcode">
+                            </li>
+                        </ul>
+                    </form>
+                </li>
+                <li>
+                    <label for="phone">Phone:</label>
+                    <input type="text" id="phone" formControlName="phone">
+                </li>
+            </ul>
+            <div class="d-flex justify-content-end mt-4">
+                <button type="submit" mat-raised-button color="primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

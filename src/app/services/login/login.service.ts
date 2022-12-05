@@ -1,4 +1,6 @@
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 import { HttpService } from "../httpService/http-service.service";
 
@@ -9,15 +11,22 @@ import { HttpService } from "../httpService/http-service.service";
 export class LoginService {
 
     constructor(
+        private httpClient: HttpClient,
         private httpService: HttpService
     ) {}
 
     public login(email, userPassword) {
         const url = environment.login;
         const bodyObj = {
-            userid: email,
+            username: email,
             password: userPassword
         };
         return this.httpService.postData(url, JSON.stringify(bodyObj));
+    }
+
+    public adduser(payload): Observable<any> {
+        const url = environment.addUser;
+        return this.httpClient.post(url, payload)
+
     }
 }

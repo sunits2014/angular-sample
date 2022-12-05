@@ -9,7 +9,8 @@ export const environment = {
   singleUser: 'https://fakestoreapi.com/users/',
   getProducts: 'https://fakestoreapi.com/products',
   getCategories: 'https://fakestoreapi.com/products/categories',
-  getInCategory: 'https://fakestoreapi.com/products/category'
+  getInCategory: 'https://fakestoreapi.com/products/category',
+  addUser: 'https://fakestoreapi.com/users'
 };
 
 /*

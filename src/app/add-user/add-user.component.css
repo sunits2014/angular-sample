@@ -1,0 +1,24 @@
+ul li {
+    display: flex;
+    padding: 0.5rem 0;
+}
+
+ul li label {
+    width: 25%;
+}
+
+ul li input {
+    width: 50%;
+}
+
+form {
+    width: 100%;
+}
+
+.subList {
+    flex-direction: column;
+}
+
+.errorText {
+    color: red;
+}
