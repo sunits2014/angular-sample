@@ -1,5 +1,6 @@
 <div class="container d-flex justify-content-center my-5">
     <div class="w-75 shadow p-4">
+        <p *ngIf="isViewRendered">This is rendered after view is completely rendered</p>
         <h3 class="fw-bold">Add User Form</h3>
         <form [formGroup]="userForm" (ngSubmit)="addUser()">
             <ul class="m-0 p-0">

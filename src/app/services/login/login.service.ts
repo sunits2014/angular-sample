@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
@@ -25,8 +25,11 @@ export class LoginService {
     }
 
     public adduser(payload): Observable<any> {
+        const headers = new HttpHeaders()
+        .set('Content', 'application/json')
+        .set('access-type', 'private');
         const url = environment.addUser;
-        return this.httpClient.post(url, payload)
+        return this.httpClient.post(url, payload, {headers: headers});
 
     }
 }
